@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSIT Department | About</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Base Setup */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* NEW: Dark Grey/Black Gradient Background for the main page */
+    background: linear-gradient(to bottom, #777777 0%, #333333 50%, #000000 100%);
+    color: #f0f0f0; 
+    background-attachment: fixed;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- HEADER --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* NEW: Solid Grey Background for the header block */
+    background: #888888; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    padding: 15px 40px;
+    
+    /* Alignment: Center content */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+/* Logo and Title Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center; 
+    width: 100%; 
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff; 
+}
+
+header h1 {
+    font-size: 1.6em;
+    letter-spacing: 0.8px;
+    margin: 0;
+    color: #ffffff; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+}
+
+/* --- NAVIGATION --- */
+nav {
+    margin-top: 0;
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+nav a {
+    color: #eeeeee; /* Default light grey/white for non-active links (as requested) */
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffffff; 
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+nav a:hover {
+    color: #ffffff; 
+    transform: scale(1.05);
+}
+
+/* Active class styling (for the current page) */
+nav a.active {
+    color: #000000; /* Active link is black/dark grey */
+    background: #ffffff; /* Active link has a white background (like the screenshot) */
+    font-weight: 600; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* Remove the underline from the active link if a background is used */
+nav a.active::before {
+    content: none;
+}
+
+
+/* --- INTRO SECTION (Main Content Block) --- */
+.intro {
+    text-align: center;
+    padding: 70px 40px;
+    /* NEW: White/Light Grey Background for the Content Block */
+    background: #f1efef; 
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1100px;
+    
+    /* NEW: Prominent dark shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1); 
+    
+    color: #333; /* Dark text for contrast on the light block */
+}
+.intro h2 {
+    font-size: 2.2em;
+    color: #000; 
+    margin-bottom: 12px;
+}
+.intro p {
+    max-width: 900px;
+    margin: auto;
+    color: #333; 
+    font-size: 1.1rem;
+    text-align: justify;
+    padding: 0 15px;
+}
+
+/* --- DIAGRAM SPECIFIC STYLES --- */
+.about-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.diagram-container {
+    margin-top: 30px;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    width: 250px;
+    height: 250px;
+    border: 3px solid #000; /* Black border */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #000;
+}
+
+.diagram-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.diagram-list li {
+    background: #e0e0e0; /* Light grey background for list items */
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-left: 5px solid #000; /* Black accent bar */
+    border-radius: 5px;
+    color: #333;
+    transition: background 0.3s ease;
+}
+
+.diagram-list li:hover {
+    background: #ccc;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.08) rotate(1deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+}
+
+/* FOOTER */
+footer {
+    background:  #777777#333333; /* Solid Dark Grey/Black from Vision page */
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+   
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 900px) {
+    header {
+        padding: 15px 20px;
+    }
+    nav a {
+        margin: 5px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    .intro {
+        padding: 40px 15px;
+    }
+    .about-content {
+        flex-direction: column;
+    }
+    .diagram-list {
+        text-align: center;
+    }
+    .diagram-list li {
+        width: 80%;
+        margin: 10px auto;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/452668904_3898774220363155_3397213184900763126_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG2lkFfmlJFBQe77bRlEJOuXQN91yVaajpdA33XJVpqOn9NlWtLSb6fPr6r_PYjLrab5nS1o4OV5iM13ZwLPoR5&_nc_ohc=XkUg6gWPWVgQ7kNvwEzwqZ7&_nc_oc=Adl3_HODzNENAX2VLyLZhtefZwUsQSrqHuS42Ex9PSTEeJzt9qxco88rDy_QSTxne6Q&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=VP4Xnih864p_k4JEbWrFbQ&oh=00_AfefMDs1V1limWibEI7SAcEtHatNtP033932GM_qmplvpw&oe=690ADE39" alt="BSIT Logo" class="logo">
+        <div class="college-info">
+            <h1>Bachelor of Science in Information Technology</h1>
+        </div>
+    </div>
+
+    <nav>
+       <a href="ITpage.html">About</a>
+<a href="faculty.html">Faculty & Facilities</a>
+<a href="organization.html">Organization</a>
+<a href="officers.html">Officers</a> 
+<a href="vision.html">Vision & Goals</a>
+<a href="contacts.html">Contacts</a>
+    </nav>
+
+</header>
+
+<section class="intro">
+    <h2>Welcome to the BSIT Department</h2>
+    <p>
+        The Bachelor of Science in Information Technology (BSIT) program is a dynamic and multifaceted field of study designed to equip students with the knowledge and skills necessary to thrive in the ever-evolving world of technology. This program provides a comprehensive understanding of computer systems, software development, network administration, database management, and cybersecurity, blending theoretical concepts with practical applications. BSIT students delve into programming languages, data structures, algorithms, and software engineering principles, enabling them to create innovative and efficient software solutions. They also learn how to design, implement, and maintain computer networks, ensuring seamless communication and data transfer. Furthermore, the curriculum covers database systems, teaching students how to manage and analyze large datasets, while also emphasizing the importance of data security and ethical considerations. With a strong focus on **problem-solving** and **critical thinking**, the BSIT program prepares graduates to be versatile IT professionals, capable of adapting to new technologies and contributing to various industries, from healthcare and finance to education and entertainment.
+    </p>
+
+</section>
+
+<section class="gallery">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/518259573_122155953038429083_7494123434492967616_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHBYJtdeOMzLQVox-ZaUuNxkVdd2amANQORV13ZqYA1A2CuHnyOnDV3jL_-SvFYhq-tfhBu5OZkxlTUgOO4_9lg&_nc_ohc=6nXrjCIq0eYQ7kNvwFKSrts&_nc_oc=Adl8uxnqlBpLe8AqDyc-79rSlPz20O7-wT83JKLbWs08W5dRQWgvGsnZc0T07fy7s8w&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=1Hk-Ou1NiSdgFYgQoPixTg&oh=00_AfdR9X-txDMENEvHNwidIfOLps9KRkPnNxHTBsTQ6Ii6mw&oe=690A223D" alt="BSIT Lab">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/541671602_122161061594429083_8545857816136000586_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHfLK59hTFBNt1My_i9CCe4cqh3qbESne5yqHepsRKd7pbHNJMJmNqhDuLZCe-LVjaQB4lxyKxWZH7aLJKnlC0w&_nc_ohc=Iuq2K_vfY1QQ7kNvwHuU4zv&_nc_oc=Adm82HaplzEFKl3gZXesZoLMFnChULZawpgGcjf1aUJkzvDyXBDpzf5BwVJd8zlut9E&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=JC-gU9bOTkH8ZX6CXnyraA&oh=00_AfecPbnDD3YyhmtOFrMgeEf8laCu4DZwMVF3ow9hiWcVwQ&oe=690A36FD" alt="Students in activity">
+    <img src="https://scontent.fdvo1-2.fna.fbcdn.net/v/t1.15752-9/573827603_1044897694352913_3822225731412633020_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEoq8_egXh9i7k2ok2Cxp2yglFQSwVGs9CCUVBLBUaz0H_MsaS_WY9E8YNWp2weSNe3hlFkHF9uZjqdEznJ1CSp&_nc_ohc=B-NRKdswB1cQ7kNvwECfaG7&_nc_oc=AdmybVqVbEr7kRo9G2Jks38tM5dLqOWC75LUyvvMtyA5_cUkEZLX6NFCrUSuU-lJfTU&_nc_zt=23&_nc_ht=scontent.fdvo1-2.fna&oh=03_Q7cD3wF3xfPmY7Ecpsiqq65FUr1FoJVNzOPldHR5AlbP-GJ4rA&oe=692EFFBE" alt="IT facilities">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/539761509_122149576574765444_456558212630227141_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHoDIJWxbGenEkVfFRtbrdn6qlupUCOdUPqqW6lQI51Q0ANS4X_FxtQ0m9JaAVYj83ai9UG3M26H5yqGeD7PeoB&_nc_ohc=UGitqKwfwgsQ7kNvwGlKqnN&_nc_oc=AdmmDHIPuFV5W_bf0F8UGFKUhLet-i2P7o_pmVawZ1bOo7_aL4Z6XRMxfbqsVRPQsHQ&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=xyYWJgmiKW8hJmtCQwC8CQ&oh=00_AfeGDgg2St0qCAza1n6Y0jdHWgicMXo-fWHxTyOw7F7OhjQ&oe=690A415E" alt="Tech event">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/542760344_800386065849097_4192696087581141071_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeF7nej-O0Hjvn4Qo1zO7NLMD_z6mbIWHlgP_PqZshYeWA51yRRERT1yx2Ex5PAX_akbFIBsSdxvezOI2Sq_vGQB&_nc_ohc=WXAsCLsx46QQ7kNvwEXemzp&_nc_oc=AdkaDqp-yQgeyDJ981hHpgR3SnG5RX-YeHD0yJKmn9kDMWQAiu0B_yVwhQb9RcMn_n0&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=Dt8010C-dM0FXivFwURXxg&oh=00_AfexDzl5KMXKm3fYRdA2zAZ5l6IMDKvCKQEo0hJmJpZhbw&oe=690A3765" alt="Tech event">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/573627099_122167338614429083_741261378923605806_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFwT3tyKNO0JB7wNkyVty9TWw2FHl0nsD1bDYUeXSewPZEdKsIChmbmYj7hHFvyIM7WJVs2hKJ9b64WpAQj7MbF&_nc_ohc=iRdEVRdgPkAQ7kNvwHXFZG2&_nc_oc=Adka-eOU1uwZnjDfi15Gy8yyfCay_0N3lrS7aFmHaas6bgTBDDM581qWQEiWWUqQWP8&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=T-eCafYuGKJcOWgMp0_5Vg&oh=00_AfdNjyD9V_h672ihREGakwiZdvkBmFyMagILc5XJHc472A&oe=690A3AC5" alt="Tech event">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/476464041_122135679356429083_5252990650456116965_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeFNzRN7R220YTX9ZHC9rVoEV6ppa3o7Cu5XqmlrejsK7sERAsUrByAEPYoqGzu6_z8cwGPs1xICfxnjAxtDLh6J&_nc_ohc=7vfEWjhpaTwQ7kNvwEYWuq_&_nc_oc=AdmnsqfFEPH8KBWhcuxXC5Vw8JwS0fpEnDE7uBT6chqlYu5mlqfRlVtW-BS3ECasha8&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=zc9boCfZdN6Mb4JSdX9JUw&oh=00_AffsKzEf_e539SI7mHK6XRiBETiPNypPElBqR44QlGahbQ&oe=690A3025" alt="Tech event">
+    <img src="https://scontent.fdvo1-2.fna.fbcdn.net/v/t1.15752-9/569163846_1178750587507112_1365786330636151012_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFf7QKDJkJaxgcZJqxQ5sWwMGmXGJ3vE2IwaZcYne8TYqcIS7eC27lo3VIULn79ZsPxgJNn2JF0lpFMpy0pVyVW&_nc_ohc=kXvZEomkcO0Q7kNvwHG6Doa&_nc_oc=AdnPaHi6eN1LNU__W8CMIlC7aO2WCMoMaTZmcyNRpJJYTGrlhmopf3ln38ruO1o9Vmk&_nc_zt=23&_nc_ht=scontent.fdvo1-2.fna&oh=03_Q7cD3wH9pSJQjBQRdQXLWvbIBkPmFj1V7VROxK7hjtUvE0gKUA&oe=692EF2E2" alt="Tech event">
+
+<img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/568720082_122166627590429083_2442017671183317207_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEgZqVOkhhY0sZbVHqapnvkQZIJJ23BpwtBkgknbcGnC0gWgeppiSoACuV8aiK3jcWeo08TmekhSQUidZ1-wyNw&_nc_ohc=laWRs9yRKUcQ7kNvwHxZrrS&_nc_oc=AdkGttF7g5nz4PbgA3NWEJ6gNyxSjxioB--XJm2UUmTnr8b6E_L1AjHP8jTQ2UfbOuo&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=-SweCGGrS3Jy2kbZs2IXVQ&oh=00_Affq51LphFZAbWIfIbMsHlA6Ob8BLsJPI42ZFAqH2Xvi7Q&oe=690A303C" alt="Tech event">
+
+<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.15752-9/573630680_633231999874275_5879782493832857124_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEs0Vxbph77ftfEx_pl2MbwBF5xX0JGw4sEXnFfQkbDi56bSHtq_J6XfGT1xyVhlMFbrtnsUwopmfi5OOfy8s_g&_nc_ohc=6eIcPjQZkxwQ7kNvwFMEXYl&_nc_oc=AdntmywqkXBmb7tBCrY1mxlRu_tjXHboVg4QSkeZHDnDjdkcDauQmnrGNpGsJFUuj1A&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&oh=03_Q7cD3gEKCMuC5nr7wQAwymNVgjPoGTwwKpTU1ff_sVGQWf9BoA&oe=692BFC9A" alt="Tech event">
+
+<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.15752-9/569862179_25314505754823128_6332393956489647451_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHXoKEtezJI16gLHJsrA48-vGYdlPkF8J28Zh2U-QXwnaN9mqWNVxhbtSwD-2iRdNcM-XIOPQPpBMhTloXeMMfb&_nc_ohc=tdUUBy6LtJwQ7kNvwHDVYIE&_nc_oc=Adl2O9MI-gVd51aJBmPHEg-8o77Iz9p0k7Gmuv0hpoEZQV_G3PnrxuzskI5CnzHDbhA&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&oh=03_Q7cD3gEzW4W6lGhLwQwYakOfpp12HXmQ2roHjAtFxfbjNWXJGA&oe=692BD2A8" alt="Tech event">
+
+<img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/574592127_24996061016693062_831222941962714493_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFL7rVkp5SEFIM5yuCg0rNZMMfggc3FcFgwx-CBzcVwWIg-HuLD5Hob-vdGDNQStbe4ePl9yvheITa8_w-59DR2&_nc_ohc=NfNEjiI53JYQ7kNvwHFCrS8&_nc_oc=AdkRfy_SGl4y73baXVV5lELidES4Qh5B_eX6HQwsEyOv0ShYkW9FIVlo9tB-SaKxuyk&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&oh=03_Q7cD3gFtqrO1p0aHxv5qC4FASosvZIjk3besxx9PraUxqR3t3A&oe=692BCBDB" alt="Tech event">
+
+<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.15752-9/575429935_4274159242798276_6491259852663961567_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEgdCTeV_LfmUMM5cykZbLEPgnAj7--n7U-CcCPv76ftUILEonNP692pW2sLK2xmfs1qYDYV93cuY3D4XUMZP5H&_nc_ohc=Nrs-u-WY76sQ7kNvwEi-yPi&_nc_oc=AdkYox8uB02fb0PeuHxHO0KZrng6hbtmfHgM4rYeZt74GWg9PE9xzWcaOVFgibqN5bQ&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&oh=03_Q7cD3gH3Jg0PzxMtRFCMRZAepC7MFyoFIMoQgZgxCEyXB4fVEQ&oe=692BFA54" alt="Tech event">
+
+<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.15752-9/574843352_733234473141140_2111124088827696802_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeHGSmlSwng1GIjXPYIkUpyRhWt4cjbPrZGFa3hyNs-tkWt2dg8nzaoam9HL2o8uHmp4S9BsgY4_nRisMivnuOYp&_nc_ohc=eqz4rsuMkiAQ7kNvwHD1f9X&_nc_oc=Adk4BpK2zcXomIpXPHAIs7GkBWWjDhi9wcafNkQX_wML6Te50swjpGp5x_f0kMDffFA&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&oh=03_Q7cD3gErTQrZujU70R4gu_cYy9C8G-mMn4zorNt6JqVw7ZB-9A&oe=692BFD6D" alt="Tech event">
+
+<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.15752-9/569163846_1178750587507112_1365786330636151012_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGMPJttKP1sCUVsVURN8fcTMGmXGJ3vE2IwaZcYne8TYvdluq6JLd3YcTX9A8yUQY_41Pjj9JKPnHcdLxmklqG-&_nc_ohc=Hdiu3CLZCXUQ7kNvwEbfUUg&_nc_oc=AdlfGjPP8weTkWW7znxyeU3L9ouV9baFqCDMadDX6LsmaT2TKZMVJd0D1U_CpGxoCbI&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&oh=03_Q7cD3gGtbE2Nfcb4S16zharT0TvnPJphEeFPjEdGLgJYUNW7kg&oe=692BDF62" alt="Tech event">
+
+<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.15752-9/574573540_1385276106529625_3789365668300910710_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeG6Wg7z4_PMkMPkU7lH1nY34mOjavsZ0fviY6Nq-xnR-1TDvt141gMlyNe6muvzSxSCcB4_IHWt__2kq1FTjGpO&_nc_ohc=mdsV5oIhoeYQ7kNvwGUKvCh&_nc_oc=Adk6GpUynsPXe7BzTkZA8GLHh51ijmhHK-25ogyKFQ_sKTMVIzSALvyXDmh00VDS_FA&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&oh=03_Q7cD3gFGY59c-ztEUIvFQviMUVMF07OlbrjMlYreCxr5qmE7oQ&oe=692BCE59" alt="Tech event">
+
+<img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/573350653_853215723711417_2159949180083402111_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEHhWAgCnneeLLNQxAghiQMQ33cpIFsBQFDfdykgWwFAcheikRDhHd9gx_s1cMtNIiLz7nGwIIDuLsZblH7fzsF&_nc_ohc=NvZW8PSpTXgQ7kNvwG-mtff&_nc_oc=AdlR-u1eZcW5B9gFm_Izz_qfgBrUOW4PEsEVCg88vudkKw1IwJy7zU7sP9eh1-tZYjg&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&oh=03_Q7cD3gEr8vMDVP6ynghIbxJX69voKqD3uKsHiZDsgC3vvZktsQ&oe=692BE941" alt="Tech event">
+
+<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.15752-9/568208151_684926714276713_7342093922382683419_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGYasQtv3E-WEsNR7F3nwxbac_TMct37Nxpz9Mxy3fs3AmHjIPcG_zT714Fp18LIgVLfXxGg5WIZCbu1ZSBy9iP&_nc_ohc=cy24r8EtVj4Q7kNvwHoIO3-&_nc_oc=AdkReboBRzO1wK39R7p4Qc5VXfSBPjWAwCHlFd42lPcrPJRewA9F4-pSN9onP57_Ha8&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&oh=03_Q7cD3gGlQn3W2DA7QKQGD5JoQ9P6jXZ_7pI44TS2DwjIhnSNKw&oe=692BF550" alt="Tech event">
+
+<img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/573849150_3129577157213741_203694186360463430_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeG3enZ7wHaYwvUcBB_zl5xu45N_3hsyG1Xjk3_eGzIbVQ2Ta0fE5V5n1CbTkW_OwpV-ZfuGmeitg2qdaqELcKK0&_nc_ohc=aaZI7REm-ksQ7kNvwHQF8Tt&_nc_oc=Adk_DRpu9u4k0CVCmJiC-bETMA0_AWm3SbuurrSI3c-eIHTuHytNjPA3-DHFXvKKhFc&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&oh=03_Q7cD3gELDzDD3aG92TiwG8IpMR7ekEHJx3OB4e3jtiwpLq7V5w&oe=692BCBD0" alt="Tech event">
+
+<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.15752-9/575375993_1619969188776053_8991224848555176936_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEMl466Ix7CLd0h4LsKiRQpQUHEvMsY20dBQcS8yxjbR-t5u-cMFRP9Od6_O7XWTnRt2cmO290k9vm-Wv19EUZH&_nc_ohc=4QPJuRncmXoQ7kNvwEFSOc_&_nc_oc=AdlVxdcJb-sDO9YKVAQrJoMCWph_Hs7jnjzASLQc5ubEYD1euQoFomlK2kTxZMl5pZ0&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&oh=03_Q7cD3gGFzmgEzAeCu4OAG1_OJVuSlyCOS90wAT5vlcchL7migg&oe=692BE4B6" alt="Tech event">
+
+</section>
+
+
+<footer>
+    <p>&copy; 2025 BSIT Department | Syntax Organization</p>
+</footer>
+
+</body>
+</html>

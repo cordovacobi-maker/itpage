@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSIT Department | Program Head and Advisers</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Base Setup */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* NEW: Dark Grey/Black Gradient Background for the main page */
+    background: linear-gradient(to bottom, #777777 0%, #333333 50%, #000000 100%);
+    color: #f0f0f0; 
+    background-attachment: fixed;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- HEADER (Grey Block) --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* NEW: Solid Grey Background for the header block */
+    background: #888888; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    padding: 15px 40px;
+    
+    /* Alignment: Center content */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+/* Title */
+header h1 {
+    font-size: 1.6em; /* Reduced size slightly for cleaner look */
+    letter-spacing: 0.8px;
+    margin: 0;
+    color: #ffffff; /* White title for contrast on dark grey header */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+    /* Animation removed for cleaner look, you can re-add if needed */
+    /* animation: glowText 2s infinite alternate; */
+}
+
+/* --- NAVIGATION --- */
+nav {
+    margin-top: 0;
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+nav a {
+    color: #eeeeee; /* Default light grey/white for non-active links */
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffffff; 
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+nav a:hover {
+    color: #ffffff; 
+    transform: scale(1.05);
+}
+
+/* Active class styling - applies to the link with class="active" */
+nav a.active {
+    color: #000000; /* Active link is black/dark grey */
+    background: #ffffff; /* Active link has a white background */
+    font-weight: 600; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+nav a.active::before {
+    content: none;
+}
+
+/* --- INTRO SECTION (Main Content Block) --- */
+.intro {
+    text-align: center;
+    padding: 70px 40px;
+    /* NEW: White/Light Grey Background for the Content Block */
+    background: #f1efef; 
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1100px;
+    
+    /* NEW: Prominent dark shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1); 
+    
+    color: #333; /* Dark text for contrast on the light block */
+}
+.intro h2 {
+    font-size: 2.2em;
+    color: #000; 
+    margin-bottom: 12px;
+}
+.intro p {
+    max-width: 900px;
+    margin: auto;
+    color: #333; 
+    font-size: 1.1rem;
+    text-align: justify;
+    padding: 0 15px;
+}
+
+/* --- GALLERY (Photo Cards) --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.photo-card {
+    /* NEW: Light background for the card to stand out on the dark page */
+    background: #f0f0f0; 
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333; /* Dark text for readability on card */
+}
+
+.photo-card img {
+    width: 100%;
+    height: 200px; /* Adjusted height slightly */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.photo-card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.3em;
+    color: #000;
+}
+
+.photo-card p {
+    margin: 0;
+    color: #666;
+    font-weight: 500;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+}
+
+
+/* FOOTER */
+footer {
+    background:  #777777#333333; /* Solid Dark Grey/Black from Vision page */
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+   
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 900px) {
+    header {
+        padding: 15px 20px;
+    }
+    nav a {
+        margin: 5px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    .intro {
+        padding: 40px 15px;
+        width: 95%;
+    }
+    .gallery {
+        padding: 20px;
+    }
+}
+.logo-container {
+    display: flex;
+	justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%; 
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff; 
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+	<div class="logo-container">
+	<img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/452668904_3898774220363155_3397213184900763126_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG2lkFfmlJFBQe77bRlEJOuXQN91yVaajpdA33XJVpqOn9NlWtLSb6fPr6r_PYjLrab5nS1o4OV5iM13ZwLPoR5&_nc_ohc=XkUg6gWPWVgQ7kNvwEzwqZ7&_nc_oc=Adl3_HODzNENAX2VLyLZhtefZwUsQSrqHuS42Ex9PSTEeJzt9qxco88rDy_QSTxne6Q&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=VP4Xnih864p_k4JEbWrFbQ&oh=00_AfefMDs1V1limWibEI7SAcEtHatNtP033932GM_qmplvpw&oe=690ADE39" alt="BSIT Logo" class="logo">
+ <div class="college-info">
+            <h1>PROGRAM HEAD AND ADVISERS</h1>
+        </div>
+    </div>
+  
+  <nav>
+   <a href="ITpage.html">About</a>
+<a href="faculty.html">Faculty & Facilities</a>
+<a href="organization.html">Organization</a>
+<a href="officers.html">Officers</a>
+<a href="vision.html">Vision & Goals</a>
+<a href="contacts.html">Contacts</a>
+  </nav>
+</div>
+</header>
+
+<section class="intro">
+  <h2>Meet Our Program Head and Advisers</h2>
+  <p>Bachelor of Science and Information Technology Instructors at Davao Vision Colleges Inc. are the personnel responsible for the management, maintenance, and security of the college's entire technological infrastructure. They ensure all computer labs, classroom technology, administrative systems, and network services are operational and provide technical support to students, faculty, and administration.
+IT Facilities at Davao Vision Colleges Inc. refer to the physical spaces and equipment that support the school's technology. This includes computer laboratories for student use, the central server room where core network and data systems are housed, and the necessary network cabling and hardware that provides internet and connectivity across the campus.</p>
+</section>
+
+<section class="gallery">
+  <div class="photo-card">
+    <img src="https://scontent.fdvo1-2.fna.fbcdn.net/v/t1.15752-9/575774831_1519524035751918_1388244051395340348_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE1ruXzjxTibRxl7ooDqnvhJFnkJgeppn0kWeQmB6mmfSboYmKJI9NBVO3ogSYYWpUwUNwnIgPxZrgt_hJwzLW-&_nc_ohc=34Yp-DXk4HUQ7kNvwFl1hH7&_nc_oc=Adn-UqFbXGBE9H8wR2WyB5T4lExyWyPPhIrUF4wabzYqqRrLdNhbik1Abf-b_d82p0Q&_nc_zt=23&_nc_ht=scontent.fdvo1-2.fna&oh=03_Q7cD3wFu4-w_mEOzm3CAjww2cqLGh4nmrlm5Xzq2QyK6omjxXg&oe=692EF13B" alt="Ms. Jaeline Astillo">
+    <h3>Mrs. Jeraline Astillo</h3>
+    <p>Program Head</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/504640920_1890287748490571_4250132774843310378_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF8FnSFH1hsYsCzqovc6ZdoI3I3D4it6JYjcjcPiK3olvvolVhAR234E6gGyXBlhwKguwZeMgwPaWqmAwijQnUy&_nc_ohc=8augaanrcNQQ7kNvwG__qHg&_nc_oc=AdllM3EABOH-81u02z23lEVJiWLU2g3I22zm1r-8CvOqZUjgjsVhIxI6t1QOp-hn09E&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=6h0Pu5zJb-7FyyzgFAIrOA&oh=00_AfeUYinJA4jjnnkrPUQ0yAbHL3QlldY9n0uD2TCYuEumyQ&oe=690A3295" alt="Prof. Ken Ary Regidor">
+    <h3>Prof. Ken Ary Regidor</h3>
+    <p>IT Instructor</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="https://scontent.fdvo1-1.fna.fbcdn.net/v/t1.15752-9/569180131_1962134561033430_6441364921011846734_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeFgVSuBsy_tPJ_NSXodO0WP1lyt5TijcljWXK3lOKNyWInn-gSMLzzubtfjQoZCLHnqy_aBatG9wfdUtI3CP9n9&_nc_ohc=XBA_7T4cffoQ7kNvwHyUozW&_nc_oc=AdnoSFt-D9GFyHppASsxXeWCPHFf213vaAU2DdUec0JooG_iFwg_njzShE-EmBD3ICQ&_nc_zt=23&_nc_ht=scontent.fdvo1-1.fna&oh=03_Q7cD3wH2tG01aD_-ULkAztT543V3mUFmDi_iqqQ1d2e1mFUf5g&oe=692F16FC" alt="Ms. Leshem">
+    <h3>Ms. Leshem Dizon</h3>
+    <p>IT Instructor</p>
+  </div>
+
+  <div class="photo-card">
+    <img src="https://via.placeholder.com/400x250" alt="Mr. Aida Cahayag">
+    <h3>Ms. Aida Cahayag </h3>
+    <p>IT Instructor</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 BSIT Department</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SYNTAX Organization | BSIT Department</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Base Setup - Same as previous BSIT Page */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Grey/Black Gradient Background */
+    background: linear-gradient(to bottom, #777777 0%, #333333 50%, #000000 100%);
+    color: #f0f0f0; 
+    background-attachment: fixed;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- HEADER (Solid Grey Block) --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Solid Grey Background for the header block */
+    background: #888888; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    padding: 15px 40px;
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+    /* Animation and Glass effect removed */
+}
+
+/* Title */
+header h1 {
+    font-size: 1.6em; 
+    letter-spacing: 0.8px;
+    margin: 0;
+    color: #ffffff; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+    /* Glow animation removed */
+}
+
+/* --- NAVIGATION --- */
+nav {
+    margin-top: 0;
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+nav a {
+    color: #eeeeee; 
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffffff; 
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+nav a:hover {
+    color: #ffffff; 
+    transform: scale(1.05);
+}
+
+/* --- ACTIVE STATE MODIFICATION (GI-USAB ARON MAWALA ANG WHITE BOX) --- */
+nav a.active {
+    color: #ffffff; /* Ang Active link text color kay White */
+    background: none; /* KINI ANG NAGPAWALA SA WHITE BOX */
+    font-weight: 600; 
+    box-shadow: none; /* Gikuha ang box shadow */
+    transform: none; /* Gikuha ang scaling */
+}
+nav a.active::before {
+    content: '';
+    width: 80%; /* Active link always has a wider line */
+    background: #ffffff;
+}
+
+/* --- INTRO SECTION (Main Content Block - WHITE) --- */
+.intro {
+    text-align: center;
+    padding: 70px 40px;
+    /* White/Light Grey Background for the Content Block */
+    background: #f1efef; 
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1100px;
+    
+    /* Prominent dark shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1); 
+    
+    color: #333; /* Dark text for contrast on the light block */
+    /* Animations removed */
+    backdrop-filter: none;
+}
+.intro h2 {
+    font-size: 2.2em;
+    color: #000; 
+    margin-bottom: 12px;
+    /* Animation removed */
+}
+.intro p {
+    max-width: 900px;
+    margin: auto;
+    color: #333; 
+    font-size: 1.1rem;
+    text-align: justify;
+    padding: 0 15px;
+    /* Animation removed */
+}
+
+/* --- GALLERY (Officer and Event Cards) --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.officer-card, .photo-card, .event-card {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    /* Light background for the card to stand out on the dark page */
+    background: #f0f0f0; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333; /* Dark text for readability on card */
+}
+
+.officer-card:hover {
+    background: #ffffff; /* Brighter white hover background */
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.officer-card h3, .photo-card h3, .event-card h3 {
+    color: #000; /* Black heading color */
+    font-size: 1.3em;
+    margin: 10px 0 5px 0;
+}
+
+.officer-card p, .photo-card p, .event-card p {
+    color: #666;
+    font-size: 0.9em;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Image styles for officers and events */
+.officer-card img, .photo-card img, .event-card img {
+    width: 100%;
+    height: 200px; /* Standardized height */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animation removed */
+}
+
+.officer-card img:hover, .event-card img:hover {
+    transform: scale(1.0); /* Removed aggressive scaling on image hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Event Title Styling */
+.section-title {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-size: 1.8em;
+    color: #fff; 
+    text-shadow: 0 0 0; /* Removed glow effect */
+}
+
+
+/* FOOTER */
+footer {
+    background:  #777777#333333; /* Solid Dark Grey/Black from Vision page */
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+   
+}
+/* === ANIMATIONS (Removed all keyframes) === */
+/* Media Query for responsiveness */
+@media (max-width: 900px) {
+    header {
+        padding: 15px 20px;
+    }
+    nav {
+        flex-wrap: wrap; /* Para mo-break ang links sa small screens */
+    }
+    nav a {
+        margin: 5px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    .intro {
+        padding: 40px 15px;
+        width: 95%;
+    }
+    .gallery {
+        padding: 20px;
+    }
+    .officer-card img, .photo-card img, .event-card img {
+        height: 150px;
+    }
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center; 
+    width: 100%; 
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff; 
+}
+</style>
+</head>
+<body>
+
+<header>
+     <div class="logo-container">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/452668904_3898774220363155_3397213184900763126_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG2lkFfmlJFBQe77bRlEJOuXQN91yVaajpdA33XJVpqOn9NlWtLSb6fPr6r_PYjLrab5nS1o4OV5iM13ZwLPoR5&_nc_ohc=XkUg6gWPWVgQ7kNvwEzwqZ7&_nc_oc=Adl3_HODzNENAX2VLyLZhtefZwUsQSrqHuS42Ex9PSTEeJzt9qxco88rDy_QSTxne6Q&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=VP4Xnih864p_k4JEbWrFbQ&oh=00_AfefMDs1V1limWibEI7SAcEtHatNtP033932GM_qmplvpw&oe=690ADE39" alt="BSIT Logo" class="logo">
+        <div class="college-info">
+               <h1>SYNTAX ORGANIZATION</h1>
+        </div>
+    </div>
+    
+    <nav>
+        <a href="ITpage.html">About</a>
+<a href="faculty.html">Faculty & Facilities</a>
+<a href="organization.html">Organization</a>
+<a href="officers.html">Officers</a> 
+<a href="vision.html">Vision & Goals</a>
+<a href="contacts.html">Contacts</a>
+    </nav>
+</header>
+
+<section class="intro">
+    <h2>MEET BSIT OFFICERS SY 2025-2026</h2>
+    <p>The BSIT Officer is the student's main helper for all things related to the IT course. They are chosen by their peers to speak up for them and share their ideas or concerns with the teachers and the school's leaders. This officers work as the go-between, making sure student needs are heard and problems get fixed quickly. They also take charge of planning fun events, like tech workshops, coding contests, and social gatherings to help students learn and meet each other. Their main job is to build a friendly community and make sure all IT students are dedicated to finish this field. Ultimately, they aim to ensure students have the support and tools they need to succeed in their studies.
+</p>
+</section>
+
+    
+<section class="gallery">
+    <!-- Replace image URLs and names/roles as needed -->
+    <div class="photo-card">
+        <img src="https://scontent.fdvo1-2.fna.fbcdn.net/v/t39.30808-6/529789139_122158789130429083_8520552162738483380_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHp2O_LyO0paoxJejsz4gBDIQSEtL4OISshBIS0vg4hKxrXudgQ6PL7zHiXI76KFYK7a_ReWVfniLPf8G2RQC71&_nc_ohc=ds4iIzQe7bMQ7kNvwGok76B&_nc_oc=Adkp1ZJzzKOiY4kpDTjDENrjzs8_u59ZDCG6FbWamdH1Rsm6p0wObyuIuCFMelZ-0NQ&_nc_zt=23&_nc_ht=scontent.fdvo1-2.fna&_nc_gid=b52e7b-jZ6W1IVl5GfnDvw&oh=00_AfgQsUTtx-Vkwk72-ppL6m7XQxC2Z9-C-O-1sMN4CyVJiA&oe=690D7A50">
+        <h3>Barby Jane Coronica</h3>
+        <p>Governor</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/530234146_122158789214429083_1618901361076937924_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEGBGkXCvGu7woMZufPto3Bici9TgxY_WeJyL1ODFj9Z2uZ8v66YzolU4h-cgxWHRoUDKLzrKayKTENXF3csjJI&_nc_ohc=u5EPyjrf9P8Q7kNvwHn1XMc&_nc_oc=AdkBpWNAJAee_PKCGqFbzHx6aBdRXs4EFcX-INFI23VAoHi0X8WhCNCPg08yxbItgQU&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=bkCQ7oqnHi8cn_snooxVEA&oh=00_Affe2OmpdJESMKFMXjDFK3C1FqzOYzu7gUhzSNnseBMyRQ&oe=690AAD8A" alt="Jhorose Firmeza">
+        </a>
+        <h3>Jhorose Firmeza</h3>
+        <p>Internal</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/529359656_122158789256429083_1410352380891041896_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGC66kMsRdg6ac0lc9LfZywsmoYqKZxAzeyahiopnEDN-vuAn_C2Xiz9RXWyMS79KKF7EhHYbNK4iN9wkOWXxBw&_nc_ohc=9kxxrT9D0_gQ7kNvwGaKHgJ&_nc_oc=AdkfKMbTPLdw3gE_0xejOSekFzNXWVPv31lKPVXpsYKrpiqBvLCBsNCr1StHlqNxLi4&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=YEJ-EDTBsTj-3V0EG_Kp6w&oh=00_Afeq1CkU5KOZmghLMUdY7Ql07mTlqe6rzaI10StKWV86SQ&oe=690A9AD7" alt="Cobi Cordova">
+        </a>
+        <h3>Cobi Cordova</h3>
+        <p>External</p>
+    </div>
+
+    <div class="officer-card highlight">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/529948441_122158789304429083_4462609695450094178_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHIuWRm4th4mRZKT5FfNZ9OnLj70-Clc46cuPvT4KVzjjVL3SZd6MYfIcaktDgf3FkymkB995-XHYDQ27cEuT1B&_nc_ohc=Q679LkcVhW4Q7kNvwGssra0&_nc_oc=AdkS0Jlc6FZ3Ll-sP3ouQPWyw4IgC0Lf6VHuPv7ehHBba0SkVYfgtNl1gfJ2CmfsqQw&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=1EvT5CByT4GzhxaRQjVjRw&oh=00_Aff4uH6n5GEUM_g1L7EyTC_t9whQyXZxpvwkX-qI_y5jjA&oe=690A8E30" alt="Ruth Pelaez">
+        </a>
+        <h3>Ruth Pelaez</h3>
+        <p>Secretary</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/530289295_122158789346429083_3345228843850576779_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGyQK8OZ_Q7atGQIWLzhIJeQrghddzl-KhCuCF13OX4qA-pgAPksWAL-ypqsvQbxWRj7iP4hYFEpqEn25JvR5s2&_nc_ohc=GkrOxJGYlX0Q7kNvwFPgnq6&_nc_oc=AdnVsKdoNuxFsLaP6SXUdpl1NWbukCvgF2dHL8E9ZYTA-5x6wAcX-TSoJp7vX-BjOY8&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=iwD9Vsh1dEPUnaahkxUZJA&oh=00_AfdSqHvolWsKNBi_oP2x62l2Bkv12cIHUkdaINuLvUp95A&oe=690AA3CD" alt="Rique Serevilla">
+        </a>
+        <h3>Rique Serevilla</h3>
+        <p>Assitant Secretary</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/529300740_122158789388429083_3762135106679446300_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGVTsydeaKul47V0RGWInEc-lpKb7BeOUz6WkpvsF45TNBdbbHM2WOurBYsZB64T3UjUp3Namc12DcgdzOKCVeh&_nc_ohc=iqytyxdladQQ7kNvwHRCNeJ&_nc_oc=AdlJGnBMEyrHVdgV7MeobXFdKPFyNkjbdtR70W0rmOZsboU9pvmmtTtGzISD8Vcz7dw&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=SjkvnLQbtdIrkYc6I17xjQ&oh=00_AfdJgFg3hp8bLrHxNUcblwwQqHtFDiSyW5vUJ_YwV7VR-A&oe=690AB489" alt="Jamaica Talero">
+        </a>
+        <h3>Jamaica Talero</h3>
+        <p>Treasurer</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/529299281_122158789436429083_2595011597763222512_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGtx27SF9XxTUqKy7cGrGT70QFxQINDwnfRAXFAg0PCdx0cS2sBRDubQhzx8W2dmU4HeDR8VQmHRUeCcxMTqHbX&_nc_ohc=UlgZvFl3vMEQ7kNvwG39YEH&_nc_oc=Admrh5UGjVgrbOXWSkx2F3hfgww4rohAdm5LEF3TtvL0tYxtu0EVzIl6Kby15rBKHtg&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=1Vd082DmUFtLXqIwQAN7Fg&oh=00_Afdx36YJrPYYRaFpxNU7sTSd3akMyC_jvg5BHi4wUCGEeA&oe=690A91A6" alt="Julia Billiones">
+        </a>
+        <h3>Julia Billiones</h3>
+        <p>Assistant Treasurer</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/529968204_122158789496429083_7316745106688524893_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHedyfOkRYBqYvgUMbO32LigD2lGyGscueAPaUbIaxy51B0dWfM2RdAvSWxNXq5esoX53JfC9e2JmgSlNkEcvRa&_nc_ohc=f3pCqwUvXboQ7kNvwGdwj-o&_nc_oc=AdkYQvAfk0tdoasMH6kxv9rwaCVU_mr9-qZntMd0ofCEo65LGfytOw6UgTal1XxbFPs&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=H9MBJxnLEiH7HKFNZcGZ_A&oh=00_AfcO0U8rgT5AnNDYungBHQREiwbM81AzNdyquGgtYq3orA&oe=690AB455" alt="Heide Mecono">
+        </a>
+        <h3>Heide Mecono</h3>
+        <p>Auditor</p>
+    </div>
+
+<div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/529573523_122158789544429083_3762530431177964731_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEvIbHOMnHKP2IaV9FUp8axxxy4PRBgEB_HHLg9EGAQH4FsoJNsC5gqo-LOg57cxmEyVfqTKLohNeJHQc0ZF5Wb&_nc_ohc=Ttk7ldLzEGEQ7kNvwE7B3c2&_nc_oc=AdmQcZvvAL1pNXB4oh2b3_PqQ89xyQOtvUqtq0O8DavznXdd4UJ6XdoebILGFAoE5W8&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=BExvpCiys5css3z2oSwSTA&oh=00_AfcJy-gYcsrWuiVYvgKR78i2uZDB6shl8-sBsddbfrdCoQ&oe=690A86EA" alt="Rhyan Alboroto ">
+        </a>
+        <h3>Rhyan Alboroto </h3>
+        <p>P.I.O</p>
+    </div>
+
+<div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/529753011_122158789586429083_1967239478843760692_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG8xPTAUMrQs-zOosKNdvfsOHMMNx0tq-Q4cww3HS2r5OHu2v4JDcNfHs-01PtQXq148HCF2JNtUFwQY2iPhekS&_nc_ohc=TGrTCgc6CGMQ7kNvwGDF58e&_nc_oc=Adm0fVmtoFRkBNVumVyLCmAOxte-KbNKt-QhFonk9m3uUm3F1bD6TsZgv4b81lmcpfE&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=jH0hgejFiyZhYAf6vC0U1A&oh=00_Afclfz1Dpk3jDrJoMdlpumB9zFLclYGAw7tvV1xBpwvWQA&oe=690A9931" alt="Jea Princess Picon">
+        </a>
+        <h3>Jea Princess Picon</h3>
+        <p>P.I.O</p>
+    </div>
+
+<div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/529323325_122158789628429083_7339113345288813465_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG82lNko1PkUxovUVr0R--2QGRCXgAeKFVAZEJeAB4oVZukUAlqgZVHcqsq-9MrmW-Pn8-gblE_zD5OYZXxbP-P&_nc_ohc=ZpD8NvMX-7IQ7kNvwEBse93&_nc_oc=Admur5r2nvsH1QLw5J6Tj0i4ZUQlYARNvjw7I0l1cgim_4aj6aCdu0oRUVNNfN8Tzk4&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=KlUcKWG_n2Y4IZ74gmb9LA&oh=00_AfckpXmPpPMbw1-Iv1bGLzggNZ0PditKc0O6LDapMgXZuQ&oe=690A8C26" alt="Larry Maravilla ">
+        </a>
+        <h3>Larry Maravilla </h3>
+        <p>P.O</p>
+    </div>
+
+<div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/529346947_122158789676429083_3697531305181371798_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGslqJeX033Nr-OPkBbF2iqDUD5QsJwtyQNQPlCwnC3JJJluICowcsAda_HvnvXs9y-WISp0dL42bRD8UAFhSr0&_nc_ohc=cGMBSfvECooQ7kNvwGVZz3N&_nc_oc=AdkN92zY6OL2IYc1N_jlj1XMXo6GQFiiEzaZtdbYBVTK1TVM6r5U5HeCunGt37P5gUI&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=WzVn7SWsJjUl9Ml57xIuhA&oh=00_AfecSU6bZLX8oQKrLzYLg-3z8ZE4JA2ygIhQ85E-OFkoXA&oe=690AA7EE" alt="Emmanuel Dumaop">
+        </a>
+        <h3>Emmanuel Dumaop</h3>
+        <p>P.O</p>
+    </div>
+
+<div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo1-1.fna.fbcdn.net/v/t39.30808-6/529373720_122158789718429083_1623797707000437993_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG4zoy7fowFyrRfw_NHZ_3-AuX9ciR7HqAC5f1yJHseoAVAGOLF15n5tjyayjj-rQlyZaI3vloX2vWed3V-6z3p&_nc_ohc=MxKTVrYrndUQ7kNvwGMz17o&_nc_oc=Adk-_ceEcmGpimgXE1WguVrHpn7x3blatl4tXytsIpe8eBwlXxzKC7szSfOYc9_xVyc&_nc_zt=23&_nc_ht=scontent.fdvo1-1.fna&_nc_gid=kgm7SHjtuFUIRFVLxKIi5w&oh=00_Afhde9BOG_zblPPsIlIPcMigCp9OtURDB3T1mwxA_U49qA&oe=690D53E9" alt="Aisha Orillo">
+        </a>
+        <h3>Aisha Orillo</h3>
+        <p>Business Manager</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/530332369_122158789766429083_3642058136611457071_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHDFxhlDJqonsc_5zps4nD_BuS-gPTa6jkG5L6A9NrqOf8O5bXcX-EsJoqix7wyNDvr94Xth7USb37cpN9rM4ru&_nc_ohc=bQnbs-zP3U0Q7kNvwHmXbgB&_nc_oc=AdlTYgJbn8LesSwwXSRqY1ddJHrkCMC5okOETrOM4ULNSnfrjatiHNrxQPCKh7cIfSI&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=tH5tpAi_ttHoUYAr6A3EAA&oh=00_Afe05YPtaZZS0lF_bl-9Kfeea2X2HRHrv22rENiVhlfopg&oe=690A8ED0" alt="Renz Dohaylo">
+        </a>
+        <h3>Renz Dohaylo</h3>
+        <p>Business Manager</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/530879758_122158789838429083_3123857572756901449_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF7T2aIWkcmaskchRjcrkiInsTpTJ4yVASexOlMnjJUBEiXXu4zj9VJvgqeyvkvakYVHY8jK80wuihxoZ6EOUFu&_nc_ohc=TG5KKr6wixMQ7kNvwFYTPER&_nc_oc=AdnHPrJr6xyS8MGNY6uIP9C7f_GfxyZY-_F9R0HtcaB_e5bQP3MioALE0tw6aC5IfK0&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=vhIzbloMCvqV0szVgWeXNg&oh=00_AfcwaaKGg_x5pTywWzf2DNypE2KXItgekm8Rrzu6alz3OQ&oe=690AB458" alt="Emyrose Doloy">
+        </a>
+        <h3>Emyrose Doloy</h3>
+        <p>1st Year Representative</p>
+    </div>
+
+    <div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/529335106_122158789880429083_2082085268992961075_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGs0rnw6l4UPukZ9kj_LjZbg0D-yq5iISGDQP7KrmIhIQ72aBh7oY_WxFh19cXy6yYNnnYVczsws4WZSdSTA12e&_nc_ohc=X11WuZzUa4gQ7kNvwFNS_ye&_nc_oc=AdnHrfglmAD6v-XYBvUvOFX7w5inP4vIqylqlSXMG2cbR_F3U90_oUxPTb32LtYYj5Q&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=XdrnKUjYCuE-DXomfFZ4-g&oh=00_AffKfGBEuhwBsajl1jf2Z4xB1WrKMyybjLuhfyeuoymr_Q&oe=690AB7E5" alt="Jurey Alvin Cal">
+        </a>
+        <h3>Jurey Alvin Cal</h3>
+        <p>2nd Year Representative</p>
+    </div>
+
+<div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/529703145_122158789922429083_1811077399561046965_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEcpfQYS4XTTP5pomw4gDlj9LSc-NdZ3530tJz411nfnX1EsYtgW7dyuRHX0Vypr-cmNsD_kVkOTVmo5mRi1-2l&_nc_ohc=Nbck07ooTHgQ7kNvwGuBYwy&_nc_oc=AdltH4C36gkEteN83-TMqQLx_rawZQJIKYVswsMwEM9EGNvLaOuyLIA4ek8Ylhld11w&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=52NeJ3ZvL3NAwPSEDtPB7A&oh=00_AfcdOYOGZbGn1xolXKJ54XW5yoFaqDe6X0h4tstqzrWSkQ&oe=690A879A" alt="Jandel Banggat">
+        </a>
+        <h3>Jandel Banggat</h3>
+        <p> 3rd Year Representative</p>
+    </div>
+
+<div class="officer-card">
+        <a class="officer-thumb" href="#">
+            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/529342273_122158789982429083_9197173172867832160_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEEHoH5Yv_bsCzmXDAjrXxwg2uuXB8UKayDa65cHxQprBItfqyEHBfnoxWCYbjbdgfEyiNMHJ_OR53LyMR2-WT9&_nc_ohc=hcYJmyKhJB4Q7kNvwHQ_442&_nc_oc=Adl7npe7T_knBdYPS4v4TrTN85TTBI7PJlmvNcuQK9kg28aCiWUHSw-oJn2HTjL4OJ8&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=NpSCSdeFdm6eEQX2BHKIGw&oh=00_AffY3d6ATeSBXAuraYPMvyZD9TNsJ11Go9x01HpGcBhOOQ&oe=690A988C" alt="Aries Dave Capuno">
+        </a>
+        <h3>Aries Dave Capuno</h3>
+        <p>4th Year Representative</p>
+    </div>
+
+
+
+</section>
+
+<footer><p>&copy; 2025 SYNTAX Organization | BSIT Department</p></footer>
+</body>
+</html>

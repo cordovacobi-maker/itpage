@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SYNTAX Organization | BSIT Department</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Base Setup - Same as previous BSIT Page */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Grey/Black Gradient Background */
+    background: linear-gradient(to bottom, #777777 0%, #333333 50%, #000000 100%);
+    color: #f0f0f0; 
+    background-attachment: fixed;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- HEADER (Solid Grey Block) --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Solid Grey Background for the header block */
+    background: #888888; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    padding: 15px 40px;
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+    /* Animation and Glass effect removed */
+}
+
+/* Title */
+header h1 {
+    font-size: 1.6em; 
+    letter-spacing: 0.8px;
+    margin: 0;
+    color: #ffffff; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+    /* Glow animation removed */
+}
+
+/* --- NAVIGATION --- */
+nav {
+    margin-top: 0;
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+nav a {
+    color: #eeeeee; 
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffffff; 
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+nav a:hover {
+    color: #ffffff; 
+    transform: scale(1.05);
+}
+
+/* Active class styling - manually set for 'Organization' link */
+nav a.active {
+    color: #000000; /* Active link is black/dark grey */
+    background: #ffffff; /* Active link has a white background */
+    font-weight: 600; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+nav a.active::before {
+    content: none;
+}
+
+/* --- INTRO SECTION (Main Content Block - WHITE) --- */
+.intro {
+    text-align: center;
+    padding: 70px 40px;
+    /* White/Light Grey Background for the Content Block */
+    background: #f1efef; 
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1100px;
+    
+    /* Prominent dark shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1); 
+    
+    color: #333; /* Dark text for contrast on the light block */
+    /* Animations removed */
+    backdrop-filter: none;
+}
+.intro h2 {
+    font-size: 2.2em;
+    color: #000; 
+    margin-bottom: 12px;
+    /* Animation removed */
+}
+.intro p {
+    max-width: 900px;
+    margin: auto;
+    color: #333; 
+    font-size: 1.1rem;
+    text-align: justify;
+    padding: 0 15px;
+    /* Animation removed */
+}
+
+/* --- GALLERY (Officer and Event Cards) --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.officer-card, .photo-card, .event-card {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    /* Light background for the card to stand out on the dark page */
+    background: #f0f0f0; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333; /* Dark text for readability on card */
+}
+
+.officer-card:hover {
+    background: #ffffff; /* Brighter white hover background */
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.officer-card h3, .photo-card h3, .event-card h3 {
+    color: #000; /* Black heading color */
+    font-size: 1.3em;
+    margin: 10px 0 5px 0;
+}
+
+.officer-card p, .photo-card p, .event-card p {
+    color: #666;
+    font-size: 0.9em;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Image styles for officers and events */
+.officer-card img, .photo-card img, .event-card img {
+    width: 100%;
+    height: 200px; /* Standardized height */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animation removed */
+}
+
+.officer-card img:hover, .event-card img:hover {
+    transform: scale(1.0); /* Removed aggressive scaling on image hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Event Title Styling */
+.section-title {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-size: 1.8em;
+    color: #fff; 
+    text-shadow: 0 0 0; /* Removed glow effect */
+}
+
+
+/* FOOTER */
+footer {
+    background:  #777777#333333; /* Solid Dark Grey/Black from Vision page */
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+   
+}
+
+/* === ANIMATIONS (Removed all keyframes) === */
+/* Media Query for responsiveness */
+@media (max-width: 900px) {
+    header {
+        padding: 15px 20px;
+    }
+    nav a {
+        margin: 5px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    .intro {
+        padding: 40px 15px;
+        width: 95%;
+    }
+    .gallery {
+        padding: 20px;
+    }
+    .officer-card img, .photo-card img, .event-card img {
+        height: 150px;
+    }
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center; 
+    width: 100%; 
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff; 
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/452668904_3898774220363155_3397213184900763126_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG2lkFfmlJFBQe77bRlEJOuXQN91yVaajpdA33XJVpqOn9NlWtLSb6fPr6r_PYjLrab5nS1o4OV5iM13ZwLPoR5&_nc_ohc=XkUg6gWPWVgQ7kNvwEzwqZ7&_nc_oc=Adl3_HODzNENAX2VLyLZhtefZwUsQSrqHuS42Ex9PSTEeJzt9qxco88rDy_QSTxne6Q&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=VP4Xnih864p_k4JEbWrFbQ&oh=00_AfefMDs1V1limWibEI7SAcEtHatNtP033932GM_qmplvpw&oe=690ADE39" alt="BSIT Logo" class="logo">
+        <div class="college-info">
+               <h1>SYNTAX ORGANIZATION</h1>
+        </div>
+    </div>
+ 
+    <nav>
+       <a href="ITpage.html">About</a>
+<a href="faculty.html">Faculty & Facilities</a>
+<a href="organization.html">Organization</a>
+<a href="officers.html">Officers</a> 
+<a href="vision.html">Vision & Goals</a>
+<a href="contacts.html">Contacts</a>
+    </nav>
+</header>
+
+<section class="intro">
+    <h2>MEET THE SYNTAX ORGANIZATION OFFICERS</h2>
+    <p>The Syntax Organization is the official student group for all IT students, led by a dedicated Teacher Adviser and elected Student Officers. This group is not just for social events; it's organized into specialized teams to cover different areas of student life and technology. For instance, CIMUS focuses on organizing sports and recreational activities to promote student wellness and teamwork. The STAC Technical Team handles the setup and support for all technology needed during organization events and school programs. Meanwhile, HEXHIVE Programming provides a space for students passionate about coding to work on projects and participate in programming contests. Finally, the CSS Multimedia team manages all content creation, including photos, videos, and graphics, to document and promote the organization's activities. Together, these different fields ensure the Syntax Organization supports every IT student's academic, technical, and social needs.
+    </p>
+</section>
+
+<section class="gallery">
+  
+  <div class="photo-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/482353579_122114192984765444_5774458058100687290_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeH-TmkyXYmh_NEusWYLFTmmz2bn-tFsNoPPZuf60Ww2gwRlzqso2zfuqNXU55hFdfpfWOEvD9CcCP-qmzXugCa1&_nc_ohc=B1UMg32bs88Q7kNvwGZddIp&_nc_oc=AdkHhLNGvQNu5pZWYkhnpenx3qiQEVdi3aoTVzO70BiO128n-Ux7Yv8ab-4e3fSvIio&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=kUzdAQZo3Z2gANqJJqFsbg&oh=00_AffjDy_R0yYc4MCRBx7P4ijg9C82HdZyMycUtFXtWIMGTQ&oe=690A5271" alt="Ken Ary Regidor">
+    <h3>Ken Ary Regidor</h3>
+    <p>Adviser</p>
+  </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/484051934_122114193026765444_5739283385374903394_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFjLpA3KTyx7tb_VTftwMgYKCVIqSxblXQoJUipLFuVdAJE8s_3hnkG2kcHiU0NMFqpfkSdR9WKoffohNVvQdZq&_nc_ohc=J4_u9P0Zs-kQ7kNvwFa88wH&_nc_oc=AdlvGaUmWPBvduxKh7xqIDiQmjLuBgtr-X7OzCVLSKL2JS8pprVXm7ZxLRbAkIMEaZ4&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=ED715AMrF0LqS7DvAZQaOA&oh=00_AfcQ8nxfSM9M2H_SKCLz8MsTVgOlhkLwPu7hWuhx5-AQaw&oe=690A610C" alt="John Carl Banate">
+      </a>
+      <h3>John Carl Banate</h3>
+      <p>President</p>
+    </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/484151715_122114193092765444_1340212418440818241_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFguGu-QLrMo5yhFGFdL839vTIoVirsgF29MihWKuyAXQ2FW_C0ME2ABDdPfi8O_of8R5ad905U8Tu1ZgFxHj14&_nc_ohc=BH3k6Gnc-3MQ7kNvwGQw64b&_nc_oc=AdmQWXTIyL5FyAeS_iYh-tLFUatyv0sDaM0__4rhdu6cXi41z1CcRnONdLllGGEYAbk&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=tk3oSCfU_pZqNYlLu1G8yg&oh=00_AfdimxLT1GdrejvuAhDC2DCqcPPwj2Y1yBFp4jRTCYkufg&oe=690A39B4" alt="Barby Jane Coronica">
+      </a>
+      <h3>Barby Jane Coronica</h3>
+      <p>Vice President</p>
+    </div>
+
+    <div class="officer-card highlight">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo1-2.fna.fbcdn.net/v/t39.30808-6/484109010_122114193134765444_2368769302592529164_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE4ZGcFKitqCWE0fD-bKT4euxaJrg7aPwa7FomuDto_BkE_tSO0uXXUhRFV3DOr9LDNUp2DRh8CU6AZbcrHIreZ&_nc_ohc=-TrnCg88WigQ7kNvwGFt60-&_nc_oc=AdmLdTFQyMHxpYiLDTyh5MxUi_WscAX-RbPb6Bdy3VAkoqaxfssGlej1tqM_WP4XJrI&_nc_zt=23&_nc_ht=scontent.fdvo1-2.fna&_nc_gid=ezMWWuN3RwKZ2vZ3DTxUcw&oh=00_AfjaVMHj2g-6_Gj61bwcEBcJFWNl1HoyXiGt2JM9khBpkg&oe=690D6EF4" alt="Angel Mae Atos">
+      </a>
+      <h3>Angel Mae Atos</h3>
+      <p>Secretary</p>
+    </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/484132798_122114193176765444_3515447266012589899_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGiwjKbGAs_Zr5HuP-SPraNebaKFo39oOR5tooWjf2g5JF2ppNaOI3V2LgYnfhA2KxmEKb2qrfmsfd7yu30eLHh&_nc_ohc=1kwXDpGXhF8Q7kNvwGgNHpu&_nc_oc=Adm2j2XvX5fVdpKcOU7EVD6_HdSRnOqDMNmHM5h62JPHqcnm8cY0zH5HdJtMGVR_DNU&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=53WuUPtJr_J4pbjHiIfTMw&oh=00_Afe1adI_YeI-7toKDtZbZhcB_z11zyTuxBuZUVDkbq2JlA&oe=690A58B9" alt="Lanilee Love Lino">
+      </a>
+      <h3>Lanilee Love Lino</h3>
+      <p>Treasurer</p>
+    </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/484331709_122114193218765444_8001668733970553273_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFMWdbooNbaRx9vWyTmmIWnAy0-zmtlOwoDLT7Oa2U7CiBmi3MftV4dl6DGLmJ_8t2Ft8mM2dZE6aweTm1zINpy&_nc_ohc=XcVVnhdsXEIQ7kNvwFy0dLw&_nc_oc=Adn9asQs8q9nT9z6iFswF4D_nAmQ0JryohOSfNQ3HY4g1rEbyotSIYmqJukmrq9e0do&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=qos7s8UdcMszJR7smQ3rBg&oh=00_AffUcyFBeSQK11db1BrE9jJumy8TYMOKF2f5giDGF9cGdw&oe=690A5EDE" alt="Nolica Carbaja">
+      </a>
+      <h3>Nolica Carbaja</h3>
+      <p>Auditor</p>
+    </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/484033150_122114193260765444_8881691498277159964_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGttWQQB6cGmK5Aa51KFM4zldD5ouI3nG2V0Pmi4jecbf3ztnMVKMbCz6eX7cjrEXgYpDM-apzb62GAr1nJWiSo&_nc_ohc=arIwVSkIGxYQ7kNvwEiMU-D&_nc_oc=Adk1fCfder46Kx7tug04LVN3D0OPUMIAoGlnf1IhBPqjDeaDDFgpd5Gw3r0gVaSnzcE&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=mGSNq2kkJWQWTjLo_o1lEg&oh=00_AfcwD-ikFXGKXL8RdiT28ZV3cHtA7BtCqtRdF0e9RYDl1g&oe=690A3E5C" alt="Andrea Lastimosa">
+      </a>
+      <h3>Andrea Lastimosa</h3>
+      <p>Public Relations Officers</p>
+    </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/482345831_122114193302765444_5343944972870398948_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEpi-aKDrSnLPyJ0nuwGotj1tOViATwuyXW05WIBPC7JUtwHwZpwEJfK2tGcPTTvb2a3Rl0p-xHy5zhyknx0ySi&_nc_ohc=VxcKqjcr4oYQ7kNvwEWKW2A&_nc_oc=AdkPh0O9_6lKGhDfSRyTpu9ywjLi0fBVgXPYJbGkoXUWV196Hflnn42jfs9AMhCFojc&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=lDpSMnUbKY0G8ajYD3Lkjw&oh=00_AfdOnCJzRohi_S3XZBURejaDSlRjGcGP_HpxB91Js4AUBw&oe=690A4E7F" alt="Gillian Van Camasura">
+      </a>
+      <h3>Gillian Van Camasura</h3>
+      <p>Public Information Officers</p>
+    </div>
+
+ <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/484329171_122114193344765444_2370608297913375657_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHyhBywaTceYQl902lG2ieOFrH3eQGbKzQWsfd5AZsrNH-iUf_P9uoU2X2IsT3i09qyWwZmE_Sx2SrrnS35fgoy&_nc_ohc=yFxtsJ6DmDEQ7kNvwGFn5Vq&_nc_oc=AdlOKwSG_IbuC1_nuZvIH6B98n_MMKBGNp6bnHkVexc85GdzsAuM5Jav8sbiD57CdBc&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=kfxCPYE-56VwYFMklMvnpw&oh=00_AfdlAa3SRNqdQyF4XaO_S5Eiiy8X8DBjQdDpxhJ4T-htYw&oe=690A7816" alt="Aries Dave Capuno">
+      </a>
+      <h3>Aries Dave Capuno</h3>
+      <p>Peace Officers</p>
+    </div>
+
+ <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/484489358_122114193410765444_8370649164987932350_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGkAiuUAHapljuXxLLv_h4NWAeji0eN0OxYB6OLR43Q7JVXhokQ5pvzloaBfZtraFxfNW_2_bc7nHuoO8zsZDni&_nc_ohc=pqtUm4Qry2YQ7kNvwHtyS54&_nc_oc=AdkKR_7UuyfgfUtMCvSFOZWEIaGUI4v87XSIsmRNKBzmdtlxTQ0M2nKtPDgXUp7Lup8&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=1Clj6EXvh_XGQMWNoL8jHw&oh=00_Affe0XHqp2xjAIbTtuBiSokxBIgTXRwbdzopiWFddzaD3Q&oe=690A6EC4" alt="Jovendelle Bernales">
+      </a>
+      <h3>Jovendelle Bernales</h3>
+      <p>Peace Officers</p>
+    </div>
+
+<div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/483964166_122114193452765444_2085396666408054680_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHHUBuEQfKTR9DZUeeiTFgzes9BGydhcEZ6z0EbJ2FwRiXVlnrz4DEElnRC1lK5KWPHCnL3Y2Dl7soRcpw-8lbo&_nc_ohc=uplKYP46TJkQ7kNvwE1V31o&_nc_oc=AdnleNoVsWKk28TpG8NtX_B7kfYlpn6PCH5IFEaRE6RVp6KmYMqfdjGW1RNfluz6dAI&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=mmT-3peQfZmTViRZx1ahBQ&oh=00_Afd7KgrNYjtxZXaKKPZWTMyGnFiPCUxRsqt3g04c5TlO4A&oe=690A861F" alt="Pamela Jean Dalisay">
+      </a>
+      <h3>Pamela Jean Dalisay</h3>
+      <p>Quality Assurance</p>
+    </div>
+
+<div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/484270551_122114193524765444_4044576853049950702_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEQK-vg9x9_EhyWYxl5ra2rY_oWWUM3GD5j-hZZQzcYPoOK6HFo7eUtzQiP5RrAdwAH7QZ-P9hi3Bg9jQzhX91z&_nc_ohc=-TIFGVSboeEQ7kNvwE8LtuD&_nc_oc=AdmU3LWkBjtt3_pkAH1CcQS1J0Ox4SQ3aAo-wHdv1tKxbNPfM9t4eBNBr3t8vdzvDz4&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=DYChvuCI7hDIWJ-UY-LATQ&oh=00_AffZtzyBtZTB9pYcLpzLlmojv3Ic4sCsJQ93H_ah8Y3QsA&oe=690A98CD" alt="Mark Vincent Balaba">
+      </a>
+      <h3>Mark Vincent Balaba</h3>
+      <p>Social Media Manager</p>
+    </div>
+
+<div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/482355774_122114193566765444_668692272421673768_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEapOvdshRmzn-8Q4rCNN54lg8xvMZF2hqWDzG8xkXaGtfhBR58oh3rQocnJA-jozAJBaJlYsdxfEm074qCCl-w&_nc_ohc=Xl7XJ8C_WQcQ7kNvwFjeWi4&_nc_oc=Admsj571O8E4r1bQMuC_eaxCjvlXCOjm_5CMDXSvF0dQhUBU5j2fBdLmsCLqMaGG_kw&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=k0OWh6UNKSLG3mfhG-mQKQ&oh=00_AfdN5NYEOcApxuunJPeImNoZhJciTBh0i_7NI6AkMxsY-g&oe=690A6335" alt="Janila Carbaja">
+      </a>
+      <h3>Janila Carbaja</h3>
+      <p>Social Media Manager</p>
+    </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/483943356_122114193608765444_288847416279363038_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEVGN-0SDxeFLuGJpGs0GyvnUV1LYqgbTqdRXUtiqBtOjJHMhzs9w825Za8c2ecvB6WIMz4genD4zf6PorhS641&_nc_ohc=Crnmi-D_oZMQ7kNvwFxQgH0&_nc_oc=AdnNZBDzCfAGGxFR-O-GhfG2mGuON_6Zu0DgiQR1O2PwsBGab8bfhqiiLUawufhSFoA&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=-4ToixsOj3dtkA7DyjaEWQ&oh=00_AfcoJTHrefdhXyE4odubkJpFEtUuhihkI772m6AZqGzcsQ&oe=690A6242" alt="Kym Garcisa">
+      </a>
+      <h3>Kym Garcisa</h3>
+      <p>Technical Team</p>
+    </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/484035073_122114193662765444_8977809449771888720_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHQgcDY21eYcNcNVk2UhvUyA-Pf3kxD1KYD49_eTEPUpsugrGe5QqK0u3Lz_eIfdZzF3Yf_uEr0LNyHMigJC-kO&_nc_ohc=X91lLqQ6Qz4Q7kNvwGukl1W&_nc_oc=AdlBtVLx5rkZvclbYT7g2AwuB7I5RT-3hvEaHHKhrAFMW8WttXC55k9gPgn7rQuG5pQ&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=m3PxVoPcO9OYnt2hiW0v7w&oh=00_AfeVW0YW0gU5bK3yWIfWW-ZFxGZxkH8OZNzDTjlLunKrzg&oe=690A5DBD" alt="Jerome Pantonial">
+      </a>
+      <h3>Jerome Pantonial</h3>
+      <p>Technical Team</p>
+    </div>
+
+    <div class="officer-card">
+      <a class="officer-thumb" href="#">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/484100918_122114193704765444_2725587890488837414_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHEDbFsiChuaMWaQcMBZFCtjy5BHxt-vEWPLkEfG368RZ_Z8b_US5-ee4fQaINZjIfZtCUriMK2oFvuff05e23E&_nc_ohc=25lgZE9vk9AQ7kNvwEaS_n2&_nc_oc=AdmBMRnBSY0SSOA5-BP3RGuKHvU5ji0SOcSEy-itUacHoK_yM-r7FoBGupwuzsEfm5k&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=7d_KS-OOJMTGpBRves3U0w&oh=00_AfceCrOp3yzT5S1OSFk8CpuMGEG_3vcKT-vCVxFABirpIg&oe=690A4454" alt="Jhorose Land Firmeza">
+      </a>
+      <h3>Jhorose Land Firmeza</h3>
+      <p>Programming Master</p>
+    </div>
+
+</section>
+
+<p class="section-title"><P ALIGN="CENTER"> <b>Events and Photos</b></p>
+<section class="gallery">
+  <div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/539761509_122149576574765444_456558212630227141_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHoDIJWxbGenEkVfFRtbrdn6qlupUCOdUPqqW6lQI51Q0ANS4X_FxtQ0m9JaAVYj83ai9UG3M26H5yqGeD7PeoB&_nc_ohc=UGitqKwfwgsQ7kNvwGlKqnN&_nc_oc=AdmmDHIPuFV5W_bf0F8UGFKUhLet-i2P7o_pmVawZ1bOo7_aL4Z6XRMxfbqsVRPQsHQ&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=CQ6pNrfQaoWg-5qvYJ50jg&oh=00_AfdKdaX3a1uvFqi2z3XjYab4D98_rX_tB8QDuxrnqhuSpQ&oe=690A415E" alt="Organization Activity">
+  </div>
+
+  <div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/528549566_122145668120765444_4749054052233061672_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeEs-I_ID0iDFREtJORPJACK6Y0z2xqOJpTpjTPbGo4mlLAhOjq8EWTYIQZ9ID_z0n-VO7xHytQERzLZXQEKxnjl&_nc_ohc=gGV0wAeWx9wQ7kNvwHMrgIa&_nc_oc=AdnGtrQQKe1Kek5D166nnrc6enee4q3y4vFW63-d5cfKskwf08172r1wz3Z-qUlTC-0&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=dPQvFQ1EpJUAmaKmxGNm3w&oh=00_AfdHTj0AySz97VlKxJEScuxLqIrXdYFGrDSnXRwCfvo3vw&oe=690A59AD" alt="Leadership Seminar">
+  </div>
+
+  <div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/525559539_122144454938765444_5527445850147004363_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEVt13NqIyLHWMTmr6hh2evyafV9EEX5HTJp9X0QRfkdPeuRqZBUHiiuwJ8CAzrH8uayLydDj-uFf5750PTo11f&_nc_ohc=EzjRon9vrfEQ7kNvwGkj2Qc&_nc_oc=Adlj3RCJDzxUFKmF9vSZKUYt34z0tkz6u96nheM___Lx1O5xQdxifo_gab3mO5-l3zk&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=RDPbfXy_TxVn3t72EaLKCA&oh=00_AfdeQJdUKJkV_GkFagZP32JvV7wZhkeEdNc_xjlG3g5Y0Q&oe=690A59BF" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/518306989_122140995584765444_6781917063595496517_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFMHh3S9D9zwK26NV2LmimmEdH5ClQ1PowR0fkKVDU-jJSF6_YEjRIiYOyjkI8Hks926zch90Z3c15G6pFWueGW&_nc_ohc=0x1YRluZsqYQ7kNvwFWVzG6&_nc_oc=AdkeDD1w6EgepWGeqReGvCyhykBYCrN1TFOYyhT2zgVT2bOf5FP6FFxp8rajPMn1ksA&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=KypIUed-fenaCEJf0pmTxw&oh=00_AffADqOCyDdbzzy-F7gCAEb4ZaEhR3wnForAz_CPoHyXEg&oe=690A5AB7" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/515492122_122140990796765444_5584860553885900750_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFYaEH_VyP1n3ekYzpgLeAEUMRcfvA3xhBQxFx-8DfGENxUzA-bvv7gFVbyrieQm_l4mtuEFzc_BeJ3qWxJabos&_nc_ohc=2GA6dD_YAlEQ7kNvwEZLpKI&_nc_oc=AdkABjw6OtQRxcQdJUiG_SngX78oKjcuzSjPl0w-TZfzCbw0QiFjxlzCMsYuVIh31Pw&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=rxt8xYhZD2SCUjKmZhEO9Q&oh=00_AfdnhfSBWfck5AExYfN-FbwqSAFjPgq5n77goM3-E9iTCg&oe=690A539F" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/510536312_122138206658765444_1643219679169882498_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEstlWQjIPJ81ZTptt1ajisopMyeU405MKikzJ5TjTkwr2qmcnxB0s45h7Xj60etYEDOFC-OsvC6F0BMV6qe_Sl&_nc_ohc=2-JIJfLq4yEQ7kNvwEElqt5&_nc_oc=AdkIJitFk4pW8RcRYFI3coANi9mU4r5oSe6iJXzQbfRm12_vJ5xbdBaGOTgVahHxeAw&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=eDejUaRM0jC502gkXW8UJA&oh=00_Afcq-gCB8dO5f15bJI_HQRwGt8atNArL86lS5TkzLLJoqg&oe=690A6767" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/494518944_122126702420765444_913548090837032581_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF1sMi4e8wLnm2OA1qgrHCVncYVkUdy9P-dxhWRR3L0_2RW4af9RP_qu1Qpq8KPuFdnMUP9OExWO1jExwffWmIm&_nc_ohc=JDjzFf5JxHsQ7kNvwH_nH89&_nc_oc=AdnymuGNoZzB3MM7S1XE9Mr8tihiqShpJDGtpREI6JCRM4GsXwqdXdl0YAo2HPmeceI&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=MFRSe_klVC6Ld-RcgZx5qA&oh=00_AfeO-i_ElFtESnL0DbAzPyXj0SY6m_ZfuNTqfu_DCe2vcA&oe=690A61E2" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/492565804_122125447712765444_1443583983740075734_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEnw2ReltJMAMOLBmS1-ZacRCqjxX56f_ZEKqPFfnp_9ixHx7rVrX6iuuqtf4J77KulDjtSgdNtLZXVO8ZHlSAh&_nc_ohc=7lsYGAlmVkYQ7kNvwGCFBRo&_nc_oc=Adkzuu5FtQw2ODAeBqq3qTDk8DHUD9ZHWU6gwGvYMWRv23JKqmDn-qwgZlvxCws1elw&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=VFK2KvOgoNJGJPKHSuFXHA&oh=00_AfdX2c_LgHWF-NtUXGMto7jzN132GakHDMkiX3O1hYOW8Q&oe=690A618C" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/491643314_122122868246765444_7669934296341983642_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE4bsOarmnX0KMLwinCogKq7o_96KD9H5Luj_3ooP0fkrcSZCbFKSnoX3_PedX1hsA72eymY_IlBMDoodju32pD&_nc_ohc=c_DdFibOcT8Q7kNvwEiC0pQ&_nc_oc=AdlHQDo9ZpFY9unfKecJfWD_g-GhHps8cL1-z0gecO1Gwh5yc7NWKs8UvsRALeqAAMk&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=9B6wOlphSFXSe828OV93fQ&oh=00_Aff6g7Y2p817g3tWb-4UeQN3v9Tvd-u2lJ7-53DwGloi9Q&oe=690A3D64" alt="Tech Workshop">
+  </div>
+
+
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/557752172_122154859646765444_4252341947337341405_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHVbzCJXfxXuEIQFxxjYv4OXGt07-KPoEpca3Tv4o-gSjf2-vSTIURzXOBzYFNa4N5DGPNMwl3hDsbFYRT7QOGu&_nc_ohc=Y64buTDyxLkQ7kNvwEqHtGS&_nc_oc=AdmM58QKMFHJ8v2pfY_QPixbe8rBdQNyMnpTLCeAt9NTpz5urfuB4HiOP8JspzA9qKM&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=lBHo22y0YwHO6VlKvVmifw&oh=00_AfcNXgxp2NAcnSHOwwsCT4oX6xpPvBFmAxs7l0qGY88XOw&oe=690A66B6" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/539417549_122149576628765444_7468859427304964668_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFxoH0GyxOSaWSb5SBKm6jLuFltcjYzU7a4WW1yNjNTttwbSmoU3A8iXBqx0mT6F3oRjE5zaLECPhxrfYHD3f8T&_nc_ohc=Km3e6kw48_0Q7kNvwFTABJ3&_nc_oc=Admf23s6bCzczXzuZpgfBtnX16xG0Bonj8BAwFh533S5cIbEz6CHpY28f6fG2QdZ-zM&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=M8blGi7xwokicjQObR8_1A&oh=00_AffBZGz4tNqzagJ-nrS3YHcIFaZq4VSkkJNVkAFSMm4dSQ&oe=690A4E14" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/528847113_122145668342765444_6158582651454027222_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeFa3Q0iKjD3Ef4fAICyw5QqoXdWpRx-IUKhd1alHH4hQuMaQCn5KS5nn8mJ0v6fLF43Au8o2TG-YWhwUikd4sT7&_nc_ohc=rwBSY3Vch7oQ7kNvwEzTSVc&_nc_oc=Adn-20y9ynK9OBD8ruX3uzWWUqp6-GeQkpme9ZwgklzbFFiwr2_3F4oyhZdP_Da0Xvs&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=eTDtEm93Jbsj-Z0gPo08RQ&oh=00_AffHD_TF9hvWQu7t_2b4Od8UyrMkIAqpZwDZqOexrbvvgA&oe=690A6B4A" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/524316024_122143345280765444_6066162284645791652_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFH3Qwco0wuZxuKPR7vuR2YBZ_xTdG7zXEFn_FN0bvNcVX6N1HR0yjT3E-dFAmFcUElARhAP5IFOIMWk9i0-Ljx&_nc_ohc=4ZeEF1RmluwQ7kNvwEVd8Kp&_nc_oc=Adn1_66oz-ZWIZ75Wj1j3smGLhGJqIzoxFPYt-TuiApjZYoS7sBQxviagT5_97b__GI&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=v1WvDsXUt81VZdSiVXJvBw&oh=00_AfdjYKhf1HHjP-5FX_WuLDftQTgf3zruk8vjxzNJbJGcyg&oe=690A61E5" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/518245235_122141015288765444_7254471882680584597_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEmSZm9QIY-BvBI6WEXk2Zj4NRg0L-Qnczg1GDQv5CdzE_UBoIxqb2Vfy_uJrQa5TjShqXMaBrNtJrXka19MIRq&_nc_ohc=LBuuhYVp4XgQ7kNvwETtVfJ&_nc_oc=AdnqFQwCdsuQhKH3aQk4XVWwTD8e4T5c7bP7Arz-dHPiyE9GowPknggt2gjqhLoxHgM&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=56lzoNRjaMOwedkc8jIi6A&oh=00_AfdtjIkSRFVvYXmzIfkNzWOeeq52uDRCdD6g9fJuJBasDQ&oe=690A4F3F" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/518273867_122140997762765444_7755630806891146991_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF5OA9pMTZ4sWbwpICctKHd-cCudk76RRz5wK52TvpFHBsEl4JDK_tAf8kauT9cDJpddIyMxXBqL7XIlUAfiTv7&_nc_ohc=gB3wxN_TXEoQ7kNvwH8Bwuy&_nc_oc=Adn5o1ltz0Cmcbr0CgUU1ep5xuK8gxbkdFW_C5KjJpokwZSc3FofZcvZl2rqDtMiPvg&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=J5g3Yi2REi39SN03vZdznw&oh=00_AffPR34HiLf8W-9URhhtxJDch8drpaFA7-An49vFpREWwQ&oe=690A6A64" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/515493964_122140993352765444_4779876146373411732_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEwj6Dw_0lg1X37a8uG-UUsXiQLsZbX1hBeJAuxltfWEOVmj72VhE0ROUkBQvTalZpGfOnFcbUFpVGdGZBpLAWY&_nc_ohc=1iTc8HvRtGgQ7kNvwGJJJc2&_nc_oc=Adkep0KnBL54Q1oBUY9GltUx5zchHL95TbA8Ll5HjWiku5YL_Ja-5OtgNO4n-Wle0vs&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=3e624Rnm2z2tdPQgvZUguA&oh=00_AfflAbxBQUMEcasbglhfRGG3drQAp6t9au6MxxBRYnvL0g&oe=690A5210" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/516852855_122140991072765444_2821313588386651455_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFA-EXxXF4O_AmOKFqREPBkoWa-3zW0A-mhZr7fNbQD6RdtT_4cgErHrRXD7U7a7i_S9UN4C_OKvaowgYPWta5U&_nc_ohc=t0U0hcXCDWMQ7kNvwEoN8Xd&_nc_oc=AdmP6fMPSe6YvyOv_CjgF09cfY3DJwTF7VNP4dNOCHhQIOLlf5BGOVEQAS9xrrmTtqs&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=YJHkUXyd46tvBiZNLKWHdg&oh=00_Afc_DoBViL0PlFBhBGegKjZvz39wWWxpxvSrc5Eba6Cf_g&oe=690A5836" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/517939530_122140990874765444_4024018531230997962_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFtTHiT5ZHJDdJ4Wyl-nTCX8HXdlHR2fPfwdd2UdHZ893XrrZPOxAwqPBn9x-ES0sb7IOtwj4wnGnEpqHQEfQ2m&_nc_ohc=ZwirLNij43cQ7kNvwH6Cr9g&_nc_oc=Adlo2HOXCjQT4a_0dYBTt5EdymyuL2tnleUjPnz05HB8YTphqInEfPIUAkMSqif-saM&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=C4UqRHgJ-X1eVT5NrksZZA&oh=00_AfcOrgMNAwT-m-JNeFh55AAG4oIg1ZoQFq6ZY_AfQt0IFw&oe=690A5BD4" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/514406276_122140115330765444_4887040887272101138_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEpxAOVz2pc6S--dmX2GoX9GeXKjtFAsnAZ5cqO0UCycJ2iLlOaR5ryqulhwfEu_3AmFWqcUkrna98t86PN8CTv&_nc_ohc=SL72nQrxCssQ7kNvwEHTkfd&_nc_oc=AdnMw3Xb4aXnZXhQn0RMIv5u6be_jgwwVw5L7y7zAHWIaFmWMf_NQtgd46TnooSVkQI&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=gDo5dasF5SX7ZZ_-BL6LAA&oh=00_AfflT1Kr4pARPcYZU4l2TJZxtZpIoCjFr4pd26_4VHYyCA&oe=690A61DC" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/515958494_122140115036765444_1928588503617366407_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEPkjvSvBjLxh4rSNdCYA6OfcncfQaTfk59ydx9BpN-Tihq_taEOzV_Y0ZgD2-dH4-3ZSMh6SPdhRtdkB_5BXz9&_nc_ohc=M_1z3L6ToM0Q7kNvwHhwKC3&_nc_oc=AdlKxx-7rIPXTqhVjJq5Y5uWnQV2Ov9zh9v06kJ9I9CS-GoZiAzotnme87ppTjGZTtw&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=alfjxb2mPb3hvbclKKXJ_g&oh=00_AfchSE9CAXkH2aLvB9npLhCpkrWiG-5WYHFR1skNqsOU1Q&oe=690A3C7D" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo1-2.fna.fbcdn.net/v/t39.30808-6/490586398_122122867730765444_8857632137620486688_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFqPGTqdVVtAex5je2oHkMu5mhN6zF0U97maE3rMXRT3i8W_uCic6hsuS8v0ZuMrrm6hRttvgE6P02J4sk9Ytoq&_nc_ohc=4uiNawJpnqQQ7kNvwHrsiP0&_nc_oc=AdnmU9l0X8xlDX3yQQsfGoUZlm0tVr4_oF88dXrN12RNZvlWCCs31Q6WbelzKWHDaQk&_nc_zt=23&_nc_ht=scontent.fdvo1-2.fna&_nc_gid=JeeePAHWXwIRXCUK7xzOMg&oh=00_Afgf-h7_sKJcQ_IZmJ-xIZvB0oT6zK3w3OTbTZbl1r92pQ&oe=690D4E00" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/510474795_122138207444765444_3643907946890980047_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHXlN_up0iOjq_-pOpd3Z6wHP5MS-IK_1Ec_kxL4gr_UQ32OHK6OSZ-n1PvyrbksgDYYdbkQgIqELQqG1OkXu_4&_nc_ohc=xQyKiePJaeUQ7kNvwGy3V_c&_nc_oc=AdlENBXsdhDj1jLwy4-4Dp6pp5k988hwCSlCP9y0AONypOBGKJ3BBe0JBNFiAg8dx4E&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=K1GfdpX0Dx1bvsIHz_E6ig&oh=00_AfeY3_GreP4UVFEmbUUIpW2rO3oiMbtPgFsTcjysE8PF8w&oe=690A4B4A" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/492572734_122125448420765444_7960751729230934786_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFuOayU2TS3gkEXF3OXKRGdMazJI7ipj50xrMkjuKmPncFXzcYrwHzAyaOkr_d3klUcFoF3O8oQIpPwpXYtMTyW&_nc_ohc=hXoOhq51BGsQ7kNvwEqauZp&_nc_oc=AdkzczNmrBPjTMXplJ2X9hSa6qoI8ZfQIW3klp7609DgFWBfXwZvLnYVBHzx7o6e60Q&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=E48HZI-hmvtk_bJTKWzybQ&oh=00_Affvnc-kdAYhn5bSUSRDW3DIswBmeoJ_m3Wve3HZUSZgfQ&oe=690A4CB5" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/492312503_122125445174765444_872152406645319870_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGEyMtBdpDo5EaXctcgFCBndrjSwIxXyNh2uNLAjFfI2GMdX2tGwfSOgZW_ZDPrWo5glOevIiIUduBMQOvPtvaS&_nc_ohc=gbneombN3igQ7kNvwEYCzVr&_nc_oc=AdnFBQEYYqP2ovnbSqu3i38LwHOi76Iy1sCMh1eMZr_rvTGxmzPYIIa6ATTcmBRRuRU&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=JBl1BOANGT5Ak0CHsvQdvA&oh=00_Afc2Sp0lIMvhYWzLGcihmVFkrCiT3-Mj0zUowUl54dVqIA&oe=690A5E2E" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/493134071_122125444820765444_8691936255242054289_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF_qHW-EnkG5sW84tT95KUND8Z8ubv7VQ0Pxny5u_tVDSCP_9r5wfUCWQu37_UJCpxw-L-mNe_iqAFWF9He21AB&_nc_ohc=9KslcV7kPBgQ7kNvwEQz-6i&_nc_oc=AdnoAHXjj_deldVLxBl_csVUtzRvdgSBJK-gq-ieUD5ryno9w4F8Dv2l8MmxlWO2By4&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=n_QkHWPY-z232XwbnZKaxw&oh=00_AfcdDR9HjZdugtFO4WRWqk09sMOYeas2eQ2sshHUijCWgA&oe=690A64F3" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/492565804_122125447712765444_1443583983740075734_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEnw2ReltJMAMOLBmS1-ZacRCqjxX56f_ZEKqPFfnp_9ixHx7rVrX6iuuqtf4J77KulDjtSgdNtLZXVO8ZHlSAh&_nc_ohc=7lsYGAlmVkYQ7kNvwGCFBRo&_nc_oc=Adkzuu5FtQw2ODAeBqq3qTDk8DHUD9ZHWU6gwGvYMWRv23JKqmDn-qwgZlvxCws1elw&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=BjFf9NZLhT9y7ce9sn7C8g&oh=00_AfcmvA5R-wEQdnEm5XRFXylHErz4Hhqpnu6X_aA2nb4eaA&oe=690A618C" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/481659576_122112413396765444_6450949163135640661_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF2AhdM38mdEZosUi7aMMmh_wNq3S4YfqL_A2rdLhh-ogr0PO-CG94gcJXYnN-hznHygJFmOUCOjDoLOOVbcw0c&_nc_ohc=t0iMpBet0l8Q7kNvwGOEGMA&_nc_oc=Adnf6-i4Lv5MqoFVQp8N94wgMNzZomrsG6KU3uHkRt1RNgQPo5XgEmX_iBN4RG6XtUg&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=bqT8qGSV69hTG7CIRo408w&oh=00_AfcqmU7i0cXoEVZoVWeFaaszU8CAYYOlvOIc7iUeXIcWxg&oe=690A5236" alt="Tech Workshop">
+  </div>
+
+<div class="event-card">
+    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/490741620_122122531238765444_2991874442399716530_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFynTIKgZDHnrYRliP9D60HwGKgPh-bpjjAYqA-H5umOOSx6RtItMlXvvDD-le5CQnyZZXAPfKHFU115k-ebQyM&_nc_ohc=BiAolD2jBFsQ7kNvwGk3UAJ&_nc_oc=Adn2cnwZjg87dNu_ayQBf7UPuup1gASWV1FYIINUh3WO183u_Dd4ZEFfSylIHTYl26g&_nc_zt=23&_nc_ht=scontent.fdvo2-1.fna&_nc_gid=PVIJfyiYLdo5YzvdCDJXiw&oh=00_Afe8qduVgcaqoZ6IwNzPdDviHNdcXhlKmMPqyBEQJoA9Gw&oe=690A5A7F" alt="Tech Workshop">
+  </div>
+
+
+</section>
+
+<footer>
+  <p>&copy; 2025 SYNTAX Organization | BSIT Department</p>
+</footer>
+
+</body>
+</html>

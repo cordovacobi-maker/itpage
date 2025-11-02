@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSIT Department | Vision, Mission & Goals</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Base Setup */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Consistent Background: Dark Grey/Black Gradient */
+    background: linear-gradient(to bottom, #777777 0%, #333333 50%, #000000 100%);
+    color: #f0f0f0; 
+    background-attachment: fixed;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- HEADER (Grey Block) --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Consistent Header Background: Solid Grey */
+    background: #888888; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    padding: 15px 40px;
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+/* Title */
+header h1 {
+    font-size: 1.6em; 
+    letter-spacing: 0.8px;
+    margin: 0;
+    color: #ffffff; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); 
+}
+
+/* --- NAVIGATION --- */
+nav {
+    margin-top: 0;
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+nav a {
+    color: #eeeeee; 
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffffff; 
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::before {
+    width: 80%;
+}
+
+nav a:hover {
+    color: #ffffff; 
+    transform: scale(1.05);
+}
+
+/* Active class styling - applies to the link with class="active" */
+nav a.active {
+    color: #000000; /* Active link is black/dark grey */
+    background: #ffffff; /* Active link has a white background */
+    font-weight: 600; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+nav a.active::before {
+    content: none;
+}
+
+/* --- INTRO/CONTENT SECTION (White/Light Grey Block) --- */
+.content-section {
+    text-align: center;
+    padding: 70px 40px;
+    /* Consistent Content Block: White/Light Grey Background */
+    background: #f1efef; 
+    border-radius: 15px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1100px;
+    
+    /* Consistent Shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.1); 
+    
+    color: #333; /* Dark text for contrast on the light block */
+    transition: transform 0.5s ease; /* Added a subtle animation/transition */
+}
+
+.content-section:hover {
+    transform: translateY(-5px);
+}
+
+.content-section h2 {
+    font-size: 2.2em;
+    color: #000; 
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.content-section p {
+    max-width: 900px;
+    margin: 15px auto;
+    color: #333; 
+    font-size: 1.1rem;
+    text-align: justify;
+    padding: 0 15px;
+}
+
+/* Styling for the bold points */
+.content-section p b {
+    display: block;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    border-left: 3px solid #666; /* Simple accent */
+    padding-left: 10px;
+}
+
+
+/* FOOTER */
+footer {
+    background:  #777777#333333; /* Solid Dark Grey/Black from Vision page */
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+   
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 900px) {
+    header {
+        padding: 15px 20px;
+    }
+    nav a {
+        margin: 5px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+    .content-section {
+        padding: 40px 15px;
+        width: 95%;
+    }
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center; 
+    width: 100%; 
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff; 
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/452668904_3898774220363155_3397213184900763126_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG2lkFfmlJFBQe77bRlEJOuXQN91yVaajpdA33XJVpqOn9NlWtLSb6fPr6r_PYjLrab5nS1o4OV5iM13ZwLPoR5&_nc_ohc=XkUg6gWPWVgQ7kNvwEzwqZ7&_nc_oc=Adl3_HODzNENAX2VLyLZhtefZwUsQSrqHuS42Ex9PSTEeJzt9qxco88rDy_QSTxne6Q&_nc_zt=23&_nc_ht=scontent.fdvo2-2.fna&_nc_gid=VP4Xnih864p_k4JEbWrFbQ&oh=00_AfefMDs1V1limWibEI7SAcEtHatNtP033932GM_qmplvpw&oe=690ADE39" alt="BSIT Logo" class="logo">
+        <div class="college-info">
+             <h1>VISION, MISSION & GOALS</h1>
+        </div>
+    </div>
+    
+    <nav>
+       <a href="ITpage.html">About</a>
+<a href="faculty.html">Faculty & Facilities</a>
+<a href="organization.html">Organization</a>
+<a href="officers.html">Officers</a>
+<a href="vision.html">Vision & Goals</a>
+<a href="contacts.html">Contacts</a>
+    </nav>
+</header>
+
+<!-- ==== CONTENT SECTIONS (using .content-section for uniform look) ==== -->
+<section class="content-section" id="vision-section">
+    <h2>Vision</h2>
+    <p id="vision-text"><b>To produce God-centered graduates, value-driven servant leaders who are globally competent IT professionals, passionate, capable of solving problems and contributing to society through innovation and leadership in the 21st century.</b></p>
+</section>
+
+<section class="content-section">
+    <h2>Mission</h2>
+    <p id="mission-text-main"><b>To equip students with knowledge, problem-solving skills, creativity, and competencies in adaptability, interdisciplinary approach, and industry relevance — becoming proficient IT professionals capable of addressing real-world challenges through technology.</b></p>
+
+    <p id="mission-text-points" style="text-align: left; padding: 0 50px;">
+        <i>The Information Technology department is committed to:</i><br><br>
+        <b>1. Ensure quality teaching for the entire development of computer experts who are dedicated and competent in meeting the demands of the global community.</b>
+        <b>2. Produce skilled, productive and dynamic leaders who will contribute to the physical, spiritual, moral, economic development of the local, national and global community.</b>
+        <b>3. Develop individuals capable of bringing transformation and make an impact to the world in an innovative way.</b>
+    </p>
+</section>
+
+<section class="content-section">
+    <h2>Program Goals</h2>
+    <p id="goals-text" style="text-align: left; padding: 0 50px;">
+        <b>1. Prepare and equip students to be professionals in their field.</b>
+        <b>2. Train students in abstract and analytical processes.</b>
+        <b>3. Provide opportunities for practical experience in system installation, management, and administration.</b>
+        <b>4. Develop students’ ability to conceptualize, design, develop, and maintain information systems.</b>
+    </p>
+</section>
+
+<section class="content-section">
+    <h2>Program Objectives</h2>
+    <p id="objectives-text" style="text-align: left; padding: 0 50px;">
+        <b>1. Teach interpretation, evaluation, and promotion of information and knowledge resources.</b>
+        <b>2. Provide quality advising that promotes informed program choice.</b>
+        <b>3. Model professionalism, ethics, and access to information in a democratic society.</b>
+        <b>4. Apply technology productively in instruction and research.</b>
+        <b>5. Professional attitudes regarding scholarship, professional ethics, intellectual freedom, and access to information in a diverse democratic society.</b>
+        <b>6. Assist students to undergo training in abstract and analytical processes.</b>
+        <b>7. Provide adequate opportunities for students to acquire practical knowledge of how information systems are installed, operated, managed and administered.</b>
+        <b>8. Model the practical and productive use of information technology in instruction.</b>
+    </p>
+</section>
+
+<footer>
+    <p>&copy; 2025 BSIT Department | Vision, Mission & Goals</p>
+</footer>
+
+</body>
+</html>
